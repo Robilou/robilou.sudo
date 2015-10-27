@@ -1,0 +1,16 @@
+---
+- name: INSTALL PACKAGE
+  pkgng: name={{ item }} state=present
+  with_items:
+      - sudo
+      
+
+- name: COPY TEMPLATE sudouser
+  template: 
+     src: sudoers.j2
+     dest: /usr/local/etc/sudoers
+     backup: yes
+     owner: root
+     group: wheel
+     mode: 0640
+     backup: yes
