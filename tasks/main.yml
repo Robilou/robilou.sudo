@@ -1,2 +1,4 @@
 ---
 # tasks file for sudo
+- include: FreeBSD.yml
+  when: ansible_distribution == 'FreeBSD'
