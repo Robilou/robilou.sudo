@@ -3,7 +3,7 @@ galaxy_info:
   author: Robilou
   description: Ansible sudo role 
   company: your company (optional)
-  license: license (GPLv2, CC-BY, etc)
+  license: BSD
   min_ansible_version: 1.9
   
   platforms:

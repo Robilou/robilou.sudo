@@ -6,4 +6,5 @@
    become_user: root
    
    roles:
+    - Robilou.Python2
     - Robilou.Sudo
