@@ -1,0 +1,9 @@
+---
+# vars file for ssh
+
+sudo_supported_os: yes
+sudo_dest: /usr/local/etc/sudoers
+sudo_owner: root
+sudo_group: wheel
+sudo_mode: 0640
+__sudo_NOPASSWD: no

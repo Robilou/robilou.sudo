@@ -1,16 +1,16 @@
 ---
 # tasks file for sudo
-- name: INSTALL PACKAGE
-  pkgng: name={{ item }} state=present
-  with_items:
-      - sudo
-      
 
-- name: COPY TEMPLATE sudouser
-  template: 
-     src: sudoers.j2
-     dest: /usr/local/etc/sudoers
-     backup: yes
-     owner: root
-     group: wheel
-     mode: 0640
+- name: INCLUDE | Include get-vars.yml
+  include: get-vars.yml
+
+- name: INCLUDE | Include set-vars.yml
+  include: set-vars.yml
+
+- name: RUN INSTALL | Run FreeBSD installation
+  include:  FreeBSD-install.yml
+  when: ansible_os_family == "FreeBSD"
+
+- name: CONFIG | FreeBSD config
+  include: config.yml
+  

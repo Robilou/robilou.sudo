@@ -1,2 +1,5 @@
 ---
 # defaults file for sudo
+
+sudo_supported_os: no
+

@@ -1,0 +1,12 @@
+---
+# tasks file for sudo
+
+- name: TEMPLATE | Copy template sudouser
+  template: 
+     src: "{{ ansible_os_family }}-sudoers.j2"
+     dest: "{{ sudo_dest }}"
+     backup: yes
+     owner: "{{ sudo_owner }}"
+     group: "{{ sudo_group }}"
+     mode: "{{ sudo_mode }}"
+     validate: visudo -cf %s

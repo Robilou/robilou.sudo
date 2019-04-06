@@ -1,3 +1,4 @@
+## {{ ansible_managed }}
 ## sudoers file.
 ##
 ## This file MUST be edited with the 'visudo' command as root.
@@ -103,4 +104,10 @@ root ALL=(ALL) ALL
 ## Read drop-in files from /usr/local/etc/sudoers.d
 ## (the '#' here does not indicate a comment)
 #includedir /usr/local/etc/sudoers.d
+
+
+{% if sudo_NOPASSWD %}
 %wheel ALL=(ALL) NOPASSWD: ALL
+{% else %}
+%wheel ALL=(ALL) ALL
+{% endif %}

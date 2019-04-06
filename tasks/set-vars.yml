@@ -1,0 +1,6 @@
+---
+# tasks file for sudo
+
+- name: SET | Set vars
+  set_fact:
+    sudo_NOPASSWD: "{{ sudo_NOPASSWD|default(__sudo_NOPASSWD) }}"

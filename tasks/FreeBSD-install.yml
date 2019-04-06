@@ -1,0 +1,9 @@
+---
+# tasks file for sudo
+- name: INSTALL | Install package sudo
+  pkgng:
+    name: sudo 
+    state: present
+  
+      
+

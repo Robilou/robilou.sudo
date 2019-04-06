@@ -1,0 +1,14 @@
+- name: GET | Get OS specific variables
+  include_vars: "{{lookup('first_found', params)}}"
+  vars:
+    params:
+      files:
+        - '{{ansible_distribution}}.yml'
+        - '{{ansible_os_family}}.yml'
+      paths:
+        - 'vars'
+      
+- name: TEST | Test if OS is unsupported
+  fail:
+      msg: "OS {{ ansible_distribution }} {{ ansible_distribution_major_version }} is unsupported" 
+  when: not sudo_supported_os
